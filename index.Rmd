@@ -1,0 +1,83 @@
+---
+title: "useR! 2021"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+    self_contained: false
+    includes:
+      after_body: "afterInit.html"
+      #beforeInit: "afterInit.html"
+      
+    css: css/custom.css
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(dplyr)
+library(stringr)
+
+source("events_summary.R")
+```
+
+Sidebar {.sidebar data-width=200}
+=====================================
+
+<div class="sidebar-pages">
+<a class="navlink" href="#home" data-toggle="tab" aria-expanded="false"><i class="fa fa-home"></i> The R Conference</a>
+</div>
+
+The R Conference
+=====================================
+
+Row
+-------------------------------------
+
+### Presentations
+
+```{r}
+valueBox(no_of_sess, icon = "fa-video", color = "#435f9c")
+```
+
+### Total Authors
+
+```{r}
+valueBox(number_of_speakers, icon = "fa-user-edit", color = "#0586c4")
+```
+
+### Total Tutorials
+
+```{r}
+valueBox(no_of_tut, icon = "fa-slideshare", color = "#435f9c")
+```
+
+Row
+-------------------------------------
+
+### Average Tutorials Duration
+
+```{r}
+valueBox(avg_tut_duration, icon = "fa-hourglass-half", color = "#0586c4")
+```
+
+### Average Tutorials Attendees
+
+```{r}
+valueBox(avg_tut_attendees, icon = "fa-users", color = "#435f9c")
+```
+
+### Tutorials Languages
+
+```{r}
+valueBox(lang_count, icon = "fa-language", color = "#0586c4")
+```
+
+Row {data-height=400}
+-----------------------------------------------------------------------
+
+### Timeline Mapping
+
+```{r}
+
+```
+
