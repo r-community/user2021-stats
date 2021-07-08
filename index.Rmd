@@ -16,7 +16,8 @@ output:
 library(flexdashboard)
 library(dplyr)
 library(stringr)
-
+library(reactable)
+library(htmltools)
 source("events_summary.R")
 ```
 
@@ -33,7 +34,7 @@ The R Conference
 Row
 -------------------------------------
 
-### Presentations
+### Total Presentations
 
 ```{r}
 valueBox(no_of_sess, icon = "fa-video", color = "#435f9c")
@@ -45,14 +46,102 @@ valueBox(no_of_sess, icon = "fa-video", color = "#435f9c")
 valueBox(number_of_speakers, icon = "fa-user-edit", color = "#0586c4")
 ```
 
+Row {data-height=450}
+-----------------------------------------------------------------------
+
+### Summary | <small> Calendar Name </small>
+
+```{r}
+smry_calendar %>%
+  reactable(
+    .,
+    pagination = TRUE,
+    showPageSizeOptions = TRUE,
+    highlight = TRUE,
+    defaultSorted = "Count",
+    defaultColDef = colDef(headerClass = "header", align = "left"),
+    columns = list(
+      Name = colDef(
+        name = "Calendar Name",
+        width = 200,
+        defaultSortOrder = "desc",
+        filterable = TRUE,
+      ),
+      Count = colDef(
+        name = "Frequency",
+        defaultSortOrder = "desc",
+        cell = function(value) {
+          width <- paste0(value * 100 / max(smry_calendar$Count), "%")
+          value <- format(value, big.mark = ",")
+          value <- format(value, width = 9, justify = "right")
+          bar <- div(
+            class = "bar-chart",
+            style = list(marginRight = "6px"),
+            div(class = "bar", style = list(width = width, backgroundColor = "#fc5185"))
+          )
+          div(class = "bar-cell", span(class = "number", value), bar)
+        }
+      )),
+    compact = TRUE,
+    bordered = TRUE,
+    class = "categories-tbl"
+  )
+```
+
+### Top 10 Popular Tags | <small> Tags - useR! 2021 </small>
+
+```{r}
+events_tags %>%
+  head(10) %>%
+  reactable(
+    .,
+    pagination = TRUE,
+    showPageSizeOptions = TRUE,
+    highlight = TRUE,
+    defaultSorted = "Count",
+    defaultColDef = colDef(headerClass = "header", align = "left"),
+    columns = list(
+      Tags = colDef(
+        name = "Tag Name",
+        width = 450,
+        defaultSortOrder = "desc",
+        filterable = TRUE,
+      ),
+      Count = colDef(
+        name = "Frequency",
+        defaultSortOrder = "desc",
+        cell = function(value) {
+          width <- paste0(value * 100 / max(events_tags$Count), "%")
+          value <- format(value, big.mark = ",")
+          value <- format(value, width = 9, justify = "right")
+          bar <- div(
+            class = "bar-chart",
+            style = list(marginRight = "6px"),
+            div(class = "bar", style = list(width = width, backgroundColor = "#fc5185"))
+          )
+          div(class = "bar-cell", span(class = "number", value), bar)
+        }
+      )),
+    compact = TRUE,
+    bordered = TRUE,
+    class = "categories-tbl"
+  )
+```
+
+Row
+-------------------------------------
+
 ### Total Tutorials
 
 ```{r}
 valueBox(no_of_tut, icon = "fa-slideshare", color = "#435f9c")
 ```
 
-Row
--------------------------------------
+### Total Number of Instructors
+
+```{r}
+valueBox(no_of_instr, icon = "fa-chalkboard-teacher", color = "#435f9c")
+```
 
 ### Average Tutorials Duration
 
@@ -72,12 +161,67 @@ valueBox(avg_tut_attendees, icon = "fa-users", color = "#435f9c")
 valueBox(lang_count, icon = "fa-language", color = "#0586c4")
 ```
 
-Row {data-height=400}
+Row {data-height=550}
 -----------------------------------------------------------------------
 
-### Timeline Mapping
+### Tutorials Datatable | <small> useR! 2021 <small> 
 
 ```{r}
-
+select(tutorials_df, -c(1:2, 8, 11:12)) %>% 
+  reactable(
+    .,
+    pagination = TRUE,
+    showPageSizeOptions = TRUE,
+    highlight = TRUE,
+    defaultSorted = "attendees",
+    defaultColDef = colDef(headerClass = "header", align = "left"),
+    columns = list(
+      title = colDef(
+        name = "Tutorial Title",
+        width = 200,
+        defaultSortOrder = "desc",
+        filterable = TRUE,
+        html = TRUE,
+        cell = function(value, index) {
+          sprintf('<a href="%s" target="_blank">%s</a>', tutorials_df$individual_links[index], value)
+        }
+      ),
+      language = colDef(
+        name = "Language",
+        filterable = TRUE
+      ),
+      start = colDef(
+        name = "Start Time"
+      ),
+      end = colDef(
+        name = "End Time"
+      ),
+      instructors = colDef(
+        name = "Instructors",
+        filterable = TRUE
+      ),
+      duration = colDef(
+        name = "Duration"
+      ),
+      attendees = colDef(
+        name = "Attendees Count",
+        defaultSortOrder = "desc",
+        cell = function(value) {
+          width <- paste0(value * 100 / max(tutorials_df$attendees), "%")
+          value <- format(value, big.mark = ",")
+          value <- format(value, width = 9, justify = "right")
+          bar <- div(
+            class = "bar-chart",
+            style = list(marginRight = "6px"),
+            div(class = "bar", style = list(width = width, backgroundColor = "#fc5185"))
+          )
+          div(class = "bar-cell", span(class = "number", value), bar)
+        }
+      )
+    ),
+    compact = TRUE,
+    bordered = TRUE,
+    class = "categories-tbl"
+  )
 ```
 
