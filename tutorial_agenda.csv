@@ -1,0 +1,332 @@
+Id,resourceId,title,language,instructors,duration,attendees,level,start,end,summary,individual_links
+2b9ee3e3cd67265457a88d68feb35bcc,Track 1,"Graphing multivariate categorical data: The how, what and why of mosaic plots and alluvial diagrams",English,"Robbins, Joyce;
+Janda, Ludmila",150,24,Beginner,2021-07-07T19:45:00Z,2021-07-07T22:15:00Z,"Multivariate
+ categorical data present unique data visualization challenges. This 
+tutorial provides two options to meet such challenges: mosaic plots and 
+alluvial diagrams. First, we will focus on how to choose the best graph 
+for given data types and communication goals. You will then 
+learn how to get the underlying data in the correct shape to make each 
+graph and then create both graph types using the vcd and ggalluvial 
+packages. We will use engaging datasets and aim to equip you
+with the skills to make these graphs (and the choice whether to use 
+them) on your own.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=1#paperID303
+1c362cac708b57bc91214a160fb9f0aa,Track 4,Structure your app: introduction to Shiny modules,English,"Hagenberg, Jonas",120,25,Intermediate,2021-07-07T07:00:00Z,2021-07-07T09:00:00Z,"You communicate your results interactively 
+with Shiny, maintain a dashboard or provide business logic, but the 
+codebase of your app becomes too complex? Then modules are the right 
+tool for you, they are the Shiny built-in solution to manage this 
+complexity. Shiny modules allow you to break down your code into smaller
+ building blocks that can be combined and reused.
+In this tutorial I give an introduction into 
+modules, its advantages over simple R functions and how existing 
+functionality can be transferred to modules.
+For an easy start, I cover common pitfalls needed to overcome for a productive use of modules:
+- Passing reactive objects to modules
+- Returning reactive values from the module to the calling environment
+- Nesting modules
+- Dynamically generating modules (including UI)
+The contents of the tutorial are delivered by 
+short lectures followed by hands-on coding sessions in break-out rooms. 
+For this, you need a basic knowledge of reactive programming/Shiny.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=4#paperID306
+X2,Track 1,Contributing to R,English,Gabriel Becker; Martin Maechler,180,30,Intermediate,2021-07-07T16:30:00Z,2021-07-07T19:30:00Z,"Did you always want to contribute to (base) R but don't know how? Come to our Tutorial!
+We will show cases where and how users have 
+contributed actively to (base) R, by submitting bug reports with minimal
+ reproducible examples, how testing, reading source code, and providing 
+patches to the R source code has helped making R better.
+Depending on the participants willingness and 
+level of sophistication, we will look into doing things right now, for 
+currently non-resolved issues and bug reports.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=1#paperID304
+8eb3232715abf81fb9cd6f36d73e1c57,Track 3,"How to build a package with ""Rmd First"" method",English,"Rochette, Sébastien;
+Riederer, Emily",180,30,Intermediate,2021-07-07T14:30:00Z,2021-07-07T17:30:00Z,"""Rmd First"" method can reduce mental load when building packages by 
+keeping users in a natural environment, using a tool they know: a 
+RMarkdown document. The step between writing your own R code to analyze 
+some data and refactoring it into a well-documented, ready-to-share R 
+package seems unreachable to many R users. The package structure is 
+sometimes perceived as useful only for building general-purpose tools 
+for data analysis to be shared on official platforms. However, packages 
+can be used for a broader range of purposes, from internal use to 
+open-source sharing. Because packages are designed for robustness and 
+enforce helpful standards for documentation and testing, the package 
+structure provides a useful framework for refactoring analyses and 
+preparing them to go into production. The following approach to write a 
+development or an analysis inside a Rmd, will significantly reduce the 
+work to transform a Rmd into a package : - _Design_ : define the goal of
+ your next steps and the tools needed to reach them - _Prototype_ : use 
+some small examples to prototype your script in Rmd - _Build_ : Build 
+your script as functions and document your work to be able to use them, 
+in the future, on real-life datasets - _Strengthen_ : Create tests to 
+assure stability of your code and follow modifications through time - 
+_Deploy_ : Transform as a well-structured package to deploy and share 
+with your community During this tutorial, we will work through the steps
+ of Rmd Driven Development to persuade attendees that their experience 
+writing R code means that they already know how to build a package. They
+ only need to be in a safe environment to find it out, which will be 
+what we propose. We will take advantage of all existing tools such as 
+{devtools}, {testthat}, {attachment} and {usethis} that ease package 
+development from Rmd to building a package. The recent package 
+[{fusen}](https://thinkr-open.github.io/fusen), which ""inflates a 
+package from a simple flat Rmd"", will be presented to further reduce the
+ step between well-designed Rmd and package deployment. Attendees will 
+leave this workshop having built their first package with the ""Rmd 
+First"" method and with the skills and tools to build more packages on 
+their own.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=3#paperID313
+a0d78d2d260ff451e629aec329d50fbe,Track 3,Bayesian modeling in R with {rstanarm} - Spanish,Spanish,"Zepeda Herrera, Fernando Antonio",165,30,Intermediate,2021-07-07T17:45:00Z,2021-07-07T20:30:00Z,"This tutorial would introduce Bayesian modeling in R particularly 
+through {rstanarm}. We would alternate between ""lectures"" and 
+""practical"" examples (with {learnr} tutorials). Starting with a brief 
+introduction of the Bayesian paradigm, we would cover linear and 
+generalized linear regression as well as useful diagnostics and 
+posterior visualization.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=3#paperID314
+51e3851b8a8faaf87e03460993eded0f,Track 2,Systematic data validation with the validate package,English,"van der Loo, Mark;
+de Jonge, Edwin",240,30,Intermediate,2021-07-07T10:15:00Z,2021-07-07T14:15:00Z,"Checking the quality of data is a task that pervades data analyses. It 
+does not matter whether you are working with raw data, cleaned data, or 
+with the results of an analyses. It is always important to convince 
+yourself that the data you are using is fit for its intended purpose. 
+Since it is such a common task, why not automate it? The 'validate' 
+package is designed for exactly this task: it implements a domain 
+specific language for data checking that aims to encompass any check you
+ might wish to perform. In this course you will will learn to define and
+ measure data quality in a precise way with the validate package. We 
+will focus on the main workflow, and show you how you can involve domain
+ experts directly with your work, even if they do not know R. You will 
+learn the main principles of data validation, both from the point of 
+view of organizing a data processing work flow, as well as from a more 
+formal perspective. You will exercise data validation tasks that range 
+from checking input format and types to complex checks that involve data
+ from multiple sources. You will learn how to follow the evolution of 
+data quality as it is processed using the lumberjack package. And you 
+will learn how to flush out redundant or contradictory quality demands 
+using the validatetools package. The course will consist of hands-on 
+work, based on a prepared tutorial that will be published on GitHub. 
+There will be break-out sessions with assignments where you can discuss 
+the materials with other course participants. The presentations will 
+include some Kahoot quizzes to keep things interactive, fun, and 
+focused.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=2#paperID317
+82c592fb201bad6034bfab58b5d4a655,Track 2,Production-grade Shiny Apps with {golem} - French,French,"Guyader, Vincent;
+Girard, Cervan",210,30,Intermediate,2021-07-07T14:30:00Z,2021-07-07T18:00:00Z,"This tutorial is aimed at intermediate or advanced shiny application 
+developers who want to design ""clean"" applications following best 
+practices. We will present the different steps necessary to obtain an 
+application deployed in production. An active participation of the 
+participants is expected, with screen sharing, microphone (and if 
+possible webcam).",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=2#paperID318
+X1,Track 2,Translating R to Your Language,English,"Michael Chirico, Michael Lawrence",180,30,Intermediate,2021-06-07T23:15:00Z,2021-06-08T02:15:00Z,"R users are a global bunch. Providing error messages in languages besides
+English can greatly improve the user experience (and debugging experience) of
+those using R who may not be English natives.
+This tutorial aims to get package developers 
+and other R community members started implementing foreign-language 
+translations of R's messages (errors, warnings, verbose output, etc.) 
+into a language of their choosing.
+The standard tools for providing translations can be somewhat esoteric; in this
+tutorial, we'll go over some of the challenges presented by translations, the
+process for providing and/or updating translations to R itself, and finally
+introduce a package (`potools`) that will remove some of the frictions
+potential translators may face.
+We especially encourage attendance from speakers of major world languages
+currently missing from the R translation data base, in particular Hindi, Arabic,
+Bengali, Urdu, and Bahasa Indonesia.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=2#paperID321
+4d20a8fa8e9fcff5d226c8ebb6f7c29e,Track 1,Quick high quality maps with R,English,"Kolb, Jan-Philipp",120,40,Beginner,2021-07-07T12:00:00Z,2021-07-07T14:00:00Z,"This tutorial covers the basic use of R for creating maps. Useful tools, as well as data sources, are both presented.  Concerning tools, the focus is on the packages osmplotr, tmap, and raster. 
+In the first part of the tutorial, you will learn how to use OpenStreetMap data. Geocoding and creation of bounding boxes will be presented as well as the use of shapefiles to create thematic maps and color-coding in R. After this introduction to the basic concepts and functionalities of mapping with R, you will go through a prototypical data analysis workflow: import, wrangling, exploration, (basic) analysis, reporting. You will have the opportunity to create your own maps during the workshop. A GitHub repo on the course will be shared.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=1#paperID302
+15b5e9a477b3065990bc00a026602a0e,Track 4,Data Pipelines at scale with R and Kubernetes - Spanish,Spanish,"van Dunné, Frans",180,40,Advanced,2021-07-07T15:00:00Z,2021-07-07T18:00:00Z,"Many R users are confronted with larger and larger amounts of data that 
+need to be processed. In this tutorial we will show you how to go to 
+the next level by massively parallelizing your R code on a kubernetes 
+cluster. We will show you how to move your entire data pipeline to 
+Kubernetes where each node in the pipeline consists of a container 
+running R code. These containers can run with multiple cores, and then 
+farmed out to tens or hundreds of these containers running in parallel. 
+Our experience has shown that this allows for massive speed gains, at 
+relatively low cost when the kubernetes cluster is populated with 
+ephemeral virtual machines (e.g. preemptible VM's on GCP - Spot 
+instances on AWS). You need to have an interest in the more
+ technical aspects of running R code, but only to a degree. We hope to 
+dispel any fear that you might have that setting up a cluster is 
+something that is very difficult. A 
+key tool we will introduce is a tool to create data pipelines on 
+kubernetes called Pachyderm (the open source version). The tutorial will be a combination of theory, break outs 
+to run things hands on, regrouping to talk about experiences and then 
+taking the next step. We will set up code examples in steps, so that if 
+one step di not work out, after regrouping the group can take off from 
+the next starting point.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=4#paperID309
+8e8f09fb84aacae5d87c6b1538c27cd8,Track 4,Datos espaciales a lo tidy - Español,Spanish,"Campitelli, Elio;
+Corrales, Paola",180,40,Intermediate,2021-07-07T18:15:00Z,2021-07-07T21:15:00Z,"En este tutorial vas a aprender a descargar, 
+leer, analizar y visualizar datos espaciales grillados en R usando datos
+ tidy. Va a ser un tutorial participativo con programación en vivo y 
+ejercicios, bajo la idea de que puedas usar los datos para responder tus
+ propias preguntas, escribiendo tu propio código.
+Al final del taller vas a haber aprendido como:
+- descargar datos meteorológicos y climáticos programáticamente desde R,
+- leerlos en un formato tidy,
+- computar estadísicas espaciales y temporales,
+- graficar los resultados usando ggplot2 y extensiones.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=4#paperID310
+9acd29aaa7195b287500f887f6cd1f25,Track 1,Spatial Statistics for huge datasets and best practices,English,"Furrer, Reinhard;
+Flury, Roman;
+Blasi, Federico",120,50,Advanced,2021-07-07T14:15:00Z,2021-07-07T16:15:00Z,"During the last decade, several advanced approaches have 
+been proposed to address computational issues of larger and larger multivariate space-time 
+datasets . These can essentially be 
+categorized as (i) construct ""simpler"" models or (e.g., low-rank models,
+ composite likelihood methods, predictive process models) (ii) 
+approximate the models (e.g., with Gaussian Markov random fields, 
+compactly supported covariance function). In this tutorial, we discuss 
+this last point by using sparse covariance matrix approximations. There 
+is seemingly no limit to the sample size with the possibility of working
+ with long vectors jointly with 64bit handling algorithms. However, the 
+devil is in the details and to avoid encountering negative surprises we 
+provide best practices, strategies, and tricks when modeling huge 
+spatial data.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=1#paperID305
+b8ebdd224dfcd5e68e952eaa4ea7d976,Track 2,GET better at testing your R package!,English,"Salmon, Maëlle;
+Chamberlain, Scott",180,50,Advanced,2021-07-07T07:00:00Z,2021-07-07T10:00:00Z,"Are you a package developer who wants to improve your understanding and practice of unit testing?
+You've come to the right place: This tutorial is about Advanced testing of R packages, with HTTP testing as a case study.
+Unit tests have numerous advantages like 
+preventing future breakage of your package and helping you define 
+features (test-driven development).
+In many introductions to package development 
+you learn how to set up testthat infrastructure, and how to write a few 
+“cute little tests” 
+(https://testthat.r-lib.org/articles/test-fixtures.html#test-fixtures) 
+with only inline assertions.
+This might work for a bit but soon you will 
+encounter some practical and theoretical challenges: e.g. where do you 
+put data and helpers for your tests? If your package is wrapping a web 
+API, how do you test it independently from any internet connection? And 
+how do you test the behavior of your package in case of API errors?
+In this tutorial we shall use HTTP testing 
+with the vcr package as an opportunity to empower you with more 
+knowledge of testing principles (e.g. cleaning after yourself, testing 
+error behavior) and testthat practicalities (e.g. testthat helper files,
+ testthat custom skippers).
+After this tutorial, you will be able to use 
+the handy vcr package for your package wrapping a web API or any other 
+web resource, but you will also have gained skills transferable to your 
+other testing endeavours!
+Come and learn from rOpenSci expertise!
+Related materials
+https://devguide.ropensci.org/building.html#testing
+https://books.ropensci.org/http-testing
+https://blog.r-hub.io/2019/10/29/mocking/
+https://blog.r-hub.io/2020/11/18/testthat-utility-belt/",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=2#paperID316
+2ca367f20b0edab3db1166fa9d1ac34e,Track 1,Additive Bayesian Networks Modeling,English,"Kratzer, Gilles;
+Furrer, Reinhard",150,60,Intermediate,2021-07-07T09:15:00Z,2021-07-07T11:45:00Z,"Additive Bayesian Networks (ABN) have been developed to disentangle complex relationships of highly correlated datasets as frequently encountered in risk factor analysis studies. ABN is an efficient approach to sort out direct and indirect relationships among variables which is surprisingly common in systemic epidemiology. After the tutorial, you will run the particular steps within an ABN analysis with real-world data. You will be able to contrast this approach with standard regression (linear, logistic, Poisson regression, and multinomial models) used for classical risk factor analysis. 
+Towards the end, we also cover Bayesian Model Averaging in the context of an ABN, which is useful to assess the validity of the learned model and more advanced inference on the network. ",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=1#paperID301
+4301769836f32c8ab956ac9ad9790434,Track 3,Entry level R maps from African data - French - English,French - English,"South, Andy;
+van der Walt, Anelda;
+Dicko, Ahmadou;
+Kariuki, Shelmith;
+Baker, Laurie",240,60,Beginner,2021-07-07T10:15:00Z,2021-07-07T14:15:00Z,"This tutorial will provide an introduction to mapping and spatial data in R using 
+African data. By the end of the tutorial, you should be 
+able to make a map that is useful to you from data that you have 
+brought yourselves. We will focus on developing confidence in 
+doing the basics really well in preference to straying too far into more
+ advanced analyses. Our 
+tutorials focus on flexible workflows that you can take away. You will also learn how 
+to spot and avoid common pitfalls. The training will be 
+partly based around a set of interactive learnr tutorials that we have 
+created as part of the afrilearnr package 
+(https://github.com/afrimapr/afrilearnr) and accompanying online demos 
+described in this blog post : 
+https://afrimapr.github.io/afrimapr.website/blog/2021/interactive-tutorials-for-african-maps/.
+The tutorial will be available on shinyapps for those that are 
+unable to install locally. There will be separate English & French language groups 
+with dedicated materials. Each group will start together for the first 
+few sessions and then break into sub-groups
+ of up to 10 learners with one trainer each for improved feedback and 
+discussion. Towards the end of the tutorial we will challenge you 
+to make a map using data that you have brought or found. 
+Each language group will come back together for a final wrapup session. 
+",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=3#paperID312
+b2130e5c6a8f58f249f56ca2c4917d84,Track 2,"Professional, Polished, Presentable: Making Great Slides with xaringan",English,"Aden-Buie, Garrick;
+Canelón, Silvia",180,60,Intermediate,2021-07-07T20:00:00Z,2021-07-07T23:00:00Z,"The xaringan package brings professional, impressive, and visually 
+appealing slides to the powerful R Markdown ecosystem. Through our 
+hands-on tutorial, you will learn how to design highly 
+effective slides that support presentations for teaching and reporting 
+alike. Over three hours, you will learn how to create an 
+accessible baseline design that matches your institution or 
+organization’s style guide. Together we’ll explore the basics of CSS—the
+ design language of the internet—and how we can leverage CSS to produce 
+elegant slides for effective communication. Finally, we’ll deploy our 
+slides online where they can be shared and discovered by others long 
+after they support our presentations. The tutorial will 
+demonstrate how to use the skills learned to incorporate
+ principles of accessible design into their presentations. The tutorial 
+will feature live-coding and interactive question and answer periods, 
+interspersed with small-group break out sessions for 
+guided hands-on experience. The tutorial will be supported by a 
+repository of materials.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=2#paperID320
+35b529310e3ba8ed116e233cabb47d22,Track 1,Data visualization using ggplot2 and its extensions,English,"Messaoud, Haifa Ben;
+Belaid, Mouna;
+Driss, Kaouthar;
+Souissi, Amir",120,100,Beginner,2021-07-07T07:00:00Z,2021-07-07T09:00:00Z,"This tutorial will cover the introduction to ggplot2 and its 
+main functions. We will cover how to make visualization of one variable, two 
+variables, and three or more variables, how to lay out multiple plots, 
+the use of ggstats for statistical visualizations, how to make 
+interactive graphs using plotly and gganimate, some extensions of 
+ggplot2.Finally, we will show you how to enhance the 
+quality of your graphs by changing the theme or adding a logo and how 
+to export your graph. We will share the code on the github repository of R-Ladies 
+Tunis.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=1#paperID300
+73ed93cf6651075a3af3788b47a747de,Track 4,Getting started with torch - French,French,"Keydana, Sigrid",180,100,Intermediate,2021-07-07T10:30:00Z,2021-07-07T13:30:00Z,"Torch (https://torch.mlverse.org/) is an open source machine learning 
+framework based on PyTorch. Not requiring any Python dependencies, torch
+ for R is at once a powerful computational engine with including GPU 
+acceleration, a neural network library, and an ecosystem providing tools
+ for, among others, image, text, and audio processing. This tutorial 
+will provide a thorough introduction to torch basics: tensors, automatic
+ differentiation, and neural network modules. Thereafter, we delve into 
+two areas of special interest to R users: time series forecasting and 
+numerical optimization. All sections will include time slots for 
+practice.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=4#paperID307
+45dfd491842988c49f39ce7d84167bd9,Track 4,Pinguinos en caja : tutorial interactivo de ciencia de datos con pinguinos - Español,Spanish,"Dermit, Maria;
+Escobar, Susana",60,100,Intermediate,2021-07-07T13:45:00Z,2021-07-07T14:45:00Z,"Pingüinos en Caja es un paquete learnr que cubre los temas del libro R para ciencia de datos y utiliza el conocido paquete de datos pinguinos para explorar los conceptos del libro. 
+El paquete contiene actualmente un tutorial para cada capítulo del libro y se presentará durante el taller. Además, los asistentes trabajarán en salas para grupos pequeños
+módulos divididos por las secciones principales del libro (por ejemplo, Explorar, Wrangle, Programar, Modelar y Comunicar; 6 apartados en total) según sus objetivos de aprendizaje. 
+Las personas de la audiencia de este tutorial son estudiantes que quieran mejorar sus habilidades en ciencia de datos de forma interactiva y docentes que quieran acceder a recursos de aprendizaje adicionales similares a
+los Primers de Rstudio (https://rstudio.cloud/learn/primers). El tutorial tiene como objetivo ser interactivo y la instrucción entre pares entre los asistentes será dirigida para guiar el aprendizaje en las salas de grupos pequeños.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=4#paperID308
+45dfd491842988c49f39ce7d84167bd9,Track 2,Penguins in a Box: Interactive Data Science Tutorial with Penguins.,English,"Dermit, Maria;
+Escobar, Susana",60,100,Intermediate,2021-07-07T18:15:00Z,2021-07-07T19:15:00Z,"Penguins in a Box is a learnr package that covers the topics of R for Data Science book and uses the widely used dataset penguins to
+ explore book's concepts. The package currently contains one tutorial 
+for each chapter of the book and will be introduced during the 
+presentation. In addition, you will join breakout rooms to work on
+modules on the book's main sections (e.i. Explore, Wrangle, Program,
+ Model and Communicate; 6 sections in total) according to your learning
+ objectives. This tutorial is aimed at both students 
+who want to improve their data science skills in an interactive way and 
+teachers who want to access additional learnr resources similar to 
+Rstudio Primers (https://rstudio.cloud/learn/primers). The tutorial is 
+aimed to be interactive and peer-instruction between attendees is aimed 
+to guide learning at breakout rooms.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=2#paperID319
+92decf2b834d9b748d155f04391a17e5,Track 3,Introduction to Responsible Machine Learning,English,"Kozak, Anna;
+Baniecki, Hubert;
+Biecek, Przemyslaw;
+Wisniewski, Jakub",180,150,Beginner,2021-07-07T07:00:00Z,2021-07-07T10:00:00Z,"What? 
+The workshop focuses on responsible 
+machine learning, including areas such as model fairness, 
+explainability, and validation.
+Why? 
+To gain the theory and hands-on experience in developing safe and effective predictive models.
+For whom? 
+For those with basic knowledge of R, familiar with supervised machine learning and interested in model validation.
+What will be used? 
+We will use the DALEX 
+package for explanations, fairmodels for checking bias, and modelStudio 
+for interactive model analysis.
+",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=3#paperID311
+c3269e149bc5b3bee7ed6ac1864a3b5b,Track 3,Introduction to TileDB for R,English,"Eddelbuettel, Dirk;
+Wolen, Aaron",180,200,Intermediate,2021-07-07T20:45:00Z,2021-07-07T23:45:00Z,"TileDB is an open source _universal data engine_ that natively supports 
+dense and sparse multidimensional arrays, as well as data frames. Large 
+datasets can be stored on multiple backends ranging from a local 
+filesystem to cloud storage providers such as Amazon S3 (as well Google 
+Cloud Storage and Azure Cloud Storage) and accessed using almost any 
+language, including Python and R. The tutorial introduces the 'tiledb' R
+ package on CRAN, which allows users to efficiently operate on large 
+dense/sparse arrays using familiar R techniques and data structures. It 
+also offers key features of the underlying TileDB Embedded library: 
+parallelised read and write operations, multiple compression formats, 
+time traveling (i.e., the ability to recover data stored at previous 
+timepoints), flexible encryption, and Apache Arrow support. Several 
+simple usage examples will be provided and you will have an 
+opportunity to follow along on your laptops. One or two fuller usage 
+examples from Bioinformatics will serve as a more extended case study. 
+We will illustrate how TileDB can be used to create a performant data 
+store for results produced by Genome-Wide Association Studies, and 
+demonstrate the BioConductor package, TileDBArray, which is built on top
+ of the DelayedArray framework and has shown excellent performance 
+relevant to existing (hdf5-based) solution. Finally, usage of TileDB 
+with cloud storage providers will be illustrated. This covers both 
+direct reads and writes to, for example, Amazon S3 as well as a brief 
+illustration of the 'pay-as-you-go' Software-as-a-Service offering of 
+TileDB Cloud with its additional features.",https://www.conftool.org/user2021/index.php?page=browseSessions&form_session=3#paperID315
