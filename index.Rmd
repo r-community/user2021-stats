@@ -16,8 +16,10 @@ output:
 library(flexdashboard)
 library(dplyr)
 library(stringr)
+library(countrycode)
 library(reactable)
 library(htmltools)
+library(echarts4r)
 source("events_summary.R")
 ```
 
@@ -58,10 +60,71 @@ valueBox(total_ptps, icon = "fa-handshake", color = "#435f9c")
 valueBox(total_ctry, icon = "fa-globe", color = "#0586c4")
 ```
 
+Row {data-height=400}
+-----------------------------------------------------------------------
+
+### World Map | <small> Cumulative Registrations </small>
+
+```{r}
+wmap_ptp_df %>% e_country_names(country) %>% 
+  e_charts(country) %>%
+  e_map(Count, roam = TRUE, zoom = 1) %>%
+  e_visual_map(min =0, max = max(wmap_ptp_df$Count), 
+               color = c("#ba160c","#ce5b54",
+                         "#bf716c", "#e89993",
+                         "#f0b5b0","#f2c5c1",
+                         "#f0d9d7")) %>% 
+  e_tooltip() %>%
+  e_title("Registrations", "Timeline") 
+```
+
+### Timeline Mapping | <small> Registrations per Day </small>
+
+```{r}
+mycolor <- c("#4ca0c6","#003636","#a9a9a9", "#91c8c8")
+time_df %>% 
+  group_by(country) %>%
+  e_charts(registration_date,timeline = TRUE) %>% 
+  e_area(Count) %>%
+  e_title(text = "Registrations", 
+          subtext = "Timeline", 
+          sublink = "#",
+          left = "left", top = 4
+  ) %>%
+  e_y_axis(
+    splitArea = list(show = TRUE),
+    axisPointer = list(      show = FALSE, 
+                             lineStyle = list(
+                               color = "#999999",
+                               width = 0.75,
+                               type = "dotted"
+                             ))
+  ) %>%
+  e_x_axis(splitArea = list(show = TRUE),
+           splitLine = list(show = TRUE),
+           axisLabel= list(rotate = 0,interval = 0)) %>%
+  e_toolbox_feature(feature = "magicType",
+                    type = list("area", "line", "bar")) %>%
+  e_toolbox_feature("restore") %>%
+  e_toolbox_feature(feature = "reset") %>%
+  e_toolbox_feature("dataView") %>%
+  e_toolbox_feature("saveAsImage") %>%
+  e_animation(duration = 1000) %>%
+  e_datazoom() %>%
+  e_timeline_opts(
+    axis_type = "category",
+    playInterval = 1500,
+    top = 5,
+    right = 50,
+    left = 200
+  ) %>%
+  e_tooltip(trigger = "axis") %>% e_color(mycolor)
+```
+
 Row {data-height=450}
 -----------------------------------------------------------------------
 
-### Summary | <small> Calendar Name </small>
+### Event Categories | <small> Summaries </small>
 
 ```{r}
 smry_calendar %>%
@@ -100,7 +163,7 @@ smry_calendar %>%
   )
 ```
 
-### Top Popular Tags | <small> Tags - useR! 2021 </small>
+### Tags | <small> Ranked by Most popular </small>
 
 ```{r}
 tagsdf %>%
@@ -139,7 +202,7 @@ tagsdf %>%
   )
 ```
 
-### Top Popular Countires | <small> Registrations per Country</small>
+### Participating Countries | <small> Registrations per Country</small>
 
 ```{r}
 ctry_ptp_df %>%
@@ -193,19 +256,19 @@ valueBox(no_of_tut, icon = "fa-slideshare", color = "#0586c4")
 valueBox(no_of_instr, icon = "fa-chalkboard-teacher", color = "#435f9c")
 ```
 
-### Average Tutorials Duration
+### Average Tutorial Duration
 
 ```{r}
 valueBox(avg_tut_duration, icon = "fa-hourglass-half", color = "#0586c4")
 ```
 
-### Average Tutorials Attendees
+### Average Tutorial Attendees
 
 ```{r}
 valueBox(avg_tut_attendees, icon = "fa-users", color = "#435f9c")
 ```
 
-### Tutorials Languages
+### Tutorial Languages
 
 ```{r}
 valueBox(lang_count, icon = "fa-language", color = "#0586c4")
@@ -214,7 +277,7 @@ valueBox(lang_count, icon = "fa-language", color = "#0586c4")
 Row {data-height=550}
 -----------------------------------------------------------------------
 
-### Tutorials Datatable | <small> useR! 2021 <small> 
+### Tutorial Datatable | <small> useR! 2021 <small> 
 
 ```{r}
 select(tutorials_df, -c(1:2, 8, 11:12)) %>% 
