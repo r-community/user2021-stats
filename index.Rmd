@@ -115,50 +115,50 @@ cum_time_df %>%
   e_tooltip(trigger = "axis") %>% e_color(mycolor)
 ```
 
-Row {data-height=550}
------------------------------------------------------------------------
+<!-- Row {data-height=550} -->
+<!-- ----------------------------------------------------------------------- -->
 
-### Timeline Mapping | <small> Registrations per Day per Country </small>
+<!-- ### Timeline Mapping | <small> Registrations per Day per Country </small> -->
 
-```{r}
-mycolor <- c("#4ca0c6","#003636","#a9a9a9", "#91c8c8")
-time_df %>% 
-  group_by(country) %>%
-  e_charts(registration_date,timeline = TRUE) %>% 
-  e_area(Count) %>%
-  e_title(text = "Registrations", 
-          subtext = "Timeline", 
-          sublink = "#",
-          left = "left", top = 4
-  ) %>%
-  e_y_axis(
-    splitArea = list(show = TRUE),
-    axisPointer = list(      show = FALSE, 
-                             lineStyle = list(
-                               color = "#999999",
-                               width = 0.75,
-                               type = "dotted"
-                             ))
-  ) %>%
-  e_x_axis(splitArea = list(show = TRUE),
-           splitLine = list(show = TRUE),
-           axisLabel= list(rotate = 0,interval = 0)) %>%
-  e_toolbox_feature(feature = "magicType",
-                    type = list("area", "line", "bar")) %>%
-  e_toolbox_feature("restore") %>%
-  e_toolbox_feature(feature = "reset") %>%
-  e_toolbox_feature("dataView") %>%
-  e_toolbox_feature("saveAsImage") %>%
-  e_animation(duration = 1000) %>%
-  e_timeline_opts(
-    axis_type = "category",
-    playInterval = 1500,
-    top = 10,
-    right = 80,
-    left = 100
-  ) %>%
-  e_tooltip(trigger = "axis") %>% e_color(mycolor)
-```
+<!-- ```{r} -->
+<!-- mycolor <- c("#4ca0c6","#003636","#a9a9a9", "#91c8c8") -->
+<!-- time_df %>%  -->
+<!--   group_by(country) %>% -->
+<!--   e_charts(registration_date,timeline = TRUE) %>%  -->
+<!--   e_area(Count) %>% -->
+<!--   e_title(text = "Registrations",  -->
+<!--           subtext = "Timeline",  -->
+<!--           sublink = "#", -->
+<!--           left = "left", top = 4 -->
+<!--   ) %>% -->
+<!--   e_y_axis( -->
+<!--     splitArea = list(show = TRUE), -->
+<!--     axisPointer = list(      show = FALSE,  -->
+<!--                              lineStyle = list( -->
+<!--                                color = "#999999", -->
+<!--                                width = 0.75, -->
+<!--                                type = "dotted" -->
+<!--                              )) -->
+<!--   ) %>% -->
+<!--   e_x_axis(splitArea = list(show = TRUE), -->
+<!--            splitLine = list(show = TRUE), -->
+<!--            axisLabel= list(rotate = 0,interval = 0)) %>% -->
+<!--   e_toolbox_feature(feature = "magicType", -->
+<!--                     type = list("area", "line", "bar")) %>% -->
+<!--   e_toolbox_feature("restore") %>% -->
+<!--   e_toolbox_feature(feature = "reset") %>% -->
+<!--   e_toolbox_feature("dataView") %>% -->
+<!--   e_toolbox_feature("saveAsImage") %>% -->
+<!--   e_animation(duration = 1000) %>% -->
+<!--   e_timeline_opts( -->
+<!--     axis_type = "category", -->
+<!--     playInterval = 1500, -->
+<!--     top = 10, -->
+<!--     right = 80, -->
+<!--     left = 100 -->
+<!--   ) %>% -->
+<!--   e_tooltip(trigger = "axis") %>% e_color(mycolor) -->
+<!-- ``` -->
 
 Row {data-height=450}
 -----------------------------------------------------------------------
@@ -419,7 +419,7 @@ select(tutorials_df, -c(1:2, 8, 11:12)) %>%
       ),
       duration = colDef(
         name = "Duration",
-        width = 50
+        width = 80
       ),
       attendees = colDef(
         name = "Attendees Count",
