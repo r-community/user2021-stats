@@ -81,13 +81,12 @@ wmap_ptp_df %>% e_country_names(country) %>%
   e_title("Registrations", "Timeline") 
 ```
 
-### Timeline Mapping | <small> Registrations per Day </small>
+### Registrations per Day
 
 ```{r}
 mycolor <- c("#4ca0c6","#003636","#a9a9a9", "#91c8c8")
 cum_time_df %>% 
-  group_by(Year) %>%
-  e_charts(registration_date,timeline = TRUE) %>% 
+  e_charts(registration_date) %>% 
   e_line(Registration_Count) %>%
   e_title(text = "Registrations", 
           subtext = "Timeline", 
@@ -113,14 +112,6 @@ cum_time_df %>%
   e_toolbox_feature("dataView") %>%
   e_toolbox_feature("saveAsImage") %>%
   e_animation(duration = 1000) %>%
-  e_datazoom() %>%
-  e_timeline_opts(
-    axis_type = "category",
-    playInterval = 1500,
-    top = 5,
-    right = 50,
-    left = 200
-  ) %>%
   e_tooltip(trigger = "axis") %>% e_color(mycolor)
 ```
 
@@ -159,7 +150,6 @@ time_df %>%
   e_toolbox_feature("dataView") %>%
   e_toolbox_feature("saveAsImage") %>%
   e_animation(duration = 1000) %>%
-  e_datazoom() %>%
   e_timeline_opts(
     axis_type = "category",
     playInterval = 1500,
@@ -302,6 +292,8 @@ select(event_df, -c(6, 8:13, 15:16, 19)) %>%
     pagination = TRUE,
     showPageSizeOptions = TRUE,
     highlight = TRUE,
+    style = list(fontFamily = 'Menlo',
+                 fontSize = '14px'),
     defaultColDef = colDef(headerClass = "header", align = "left"),
     columns = list(
       Subject = colDef(
@@ -393,6 +385,8 @@ select(tutorials_df, -c(1:2, 8, 11:12)) %>%
     pagination = TRUE,
     showPageSizeOptions = TRUE,
     highlight = TRUE,
+    style = list(fontFamily = 'Menlo',
+                 fontSize = '14px'),
     defaultSorted = "attendees",
     defaultColDef = colDef(headerClass = "header", align = "left"),
     columns = list(
