@@ -6,8 +6,7 @@ output:
     vertical_layout: scroll
     self_contained: false
     includes:
-      after_body: "afterInit.html"
-      #beforeInit: "afterInit.html"
+      after_body: fragments/footer.html
       
     css: css/custom.css
 ---
@@ -27,9 +26,9 @@ source("events_summary.R")
 Sidebar {.sidebar data-width=200}
 =====================================
 
-<div class="sidebar-pages">
-<a class="navlink" href="#home" data-toggle="tab" aria-expanded="false"><i class="fa fa-home"></i> The R Conference</a>
-</div>
+```{r, echo=FALSE, results='asis'}
+htmltools::includeHTML('./fragments/sidebar.html')
+```
 
 The R Conference
 =====================================
@@ -385,7 +384,7 @@ select(tutorials_df, -c(1:2, 8, 11:12)) %>%
     pagination = TRUE,
     showPageSizeOptions = TRUE,
     highlight = TRUE,
-    style = list(fontFamily = 'Menlo',
+    style = list(fontFamily = 'inherit',
                  fontSize = '14px'),
     defaultSorted = "attendees",
     defaultColDef = colDef(headerClass = "header", align = "left"),
