@@ -1,14 +1,17 @@
 ---
-title: "useR! 2021"
+title: "useR! 2021 Conference Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
     vertical_layout: scroll
     self_contained: false
+    css: css/custom.css
+    logo: favicon_32x32.png
+    favicon: favicon_32x32.png
+    
     includes:
       after_body: fragments/footer.html
       
-    css: css/custom.css
 ---
 
 ```{r setup, include=FALSE}
@@ -291,7 +294,7 @@ select(event_df, -c(6, 8:13, 15:16, 19)) %>%
     pagination = TRUE,
     showPageSizeOptions = TRUE,
     highlight = TRUE,
-    style = list(fontFamily = 'Menlo',
+    style = list(fontFamily = 'inherit',
                  fontSize = '14px'),
     defaultColDef = colDef(headerClass = "header", align = "left"),
     columns = list(
@@ -303,18 +306,20 @@ select(event_df, -c(6, 8:13, 15:16, 19)) %>%
       ),
       Start.Date = colDef(
         name = "Start Date",
-        filterable = TRUE
+        filterable = TRUE,
+        width = 100 
       ),
       Start.Time = colDef(
         name = "Start Time",
-        width = 50
+        width = 80 
       ),
       End.Date = colDef(
-        name = "End Date"
+        name = "End Date",
+        width = 100 
       ),
       End.Time = colDef(
         name = "End Time",
-        width = 50
+        width = 80
       ),
       Calendar.Name = colDef(
         name = "Calendar Name",
@@ -330,7 +335,7 @@ select(event_df, -c(6, 8:13, 15:16, 19)) %>%
       ),
       Session.name = colDef(
         name = "Session Name",
-        width = 120
+        width = 150
       )
     ),
     compact = TRUE,
@@ -406,11 +411,11 @@ select(tutorials_df, -c(1:2, 8, 11:12)) %>%
       ),
       start = colDef(
         name = "Start Time",
-        width = 100
+        width = 150
       ),
       end = colDef(
         name = "End Time",
-        width = 100
+        width = 150
       ),
       instructors = colDef(
         name = "Instructors",
