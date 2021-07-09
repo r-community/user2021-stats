@@ -95,7 +95,6 @@ cum_time_df <- cum_time_df[-c(1)]
 cum_time_df <- cum_time_df %>%
   group_by(registration_date) %>%
   summarise(Registration_Count = n())
-cum_time_df$Year <- year(cum_time_df$registration_date)
 
 # 9. Timeline Mapping - Registrations per Day per Country
 time_df <- ptp_df
