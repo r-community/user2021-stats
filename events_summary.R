@@ -77,3 +77,20 @@ ctry_ptp_df <- ptp_df %>%
 ctry_ptp_df <- ctry_ptp_df[-c(1),]
 total_ctry <- nrow(ctry_ptp_df)
 total_ptps <- sum(ctry_ptp_df$Count)
+
+
+# 7. World Map
+wmap_ptp_df <- ptp_df
+wmap_ptp_df$country <- countrycode(wmap_ptp_df$country, "country.name", "iso2c")
+wmap_ptp_df <- wmap_ptp_df %>%
+  group_by(country) %>%
+  summarise(Count = n())
+
+
+# 8. Time-line Mapping
+time_df <- ptp_df
+time_df$registration_date <- as.Date(time_df$registration_date)
+time_df <- time_df %>%
+  group_by(country, registration_date) %>%
+  summarise(Count = n())
+time_df <- time_df[-1,]
