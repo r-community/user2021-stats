@@ -87,7 +87,17 @@ wmap_ptp_df <- wmap_ptp_df %>%
   summarise(Count = n())
 
 
-# 8. Time-line Mapping
+# 8. Cumulative Registrations Timeline
+cum_time_df <- ptp_df
+cum_time_df$registration_date <- as.Date(cum_time_df$registration_date)
+cum_time_df <- cum_time_df[-c(1)]
+
+cum_time_df <- cum_time_df %>%
+  group_by(registration_date) %>%
+  summarise(Registration_Count = n())
+cum_time_df$Year <- year(cum_time_df$registration_date)
+
+# 9. Timeline Mapping - Registrations per Day per Country
 time_df <- ptp_df
 time_df$registration_date <- as.Date(time_df$registration_date)
 time_df <- time_df %>%

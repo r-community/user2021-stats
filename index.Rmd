@@ -20,6 +20,7 @@ library(countrycode)
 library(reactable)
 library(htmltools)
 library(echarts4r)
+library(lubridate)
 source("events_summary.R")
 ```
 
@@ -70,15 +71,63 @@ wmap_ptp_df %>% e_country_names(country) %>%
   e_charts(country) %>%
   e_map(Count, roam = TRUE, zoom = 1) %>%
   e_visual_map(min =0, max = max(wmap_ptp_df$Count), 
-               color = c("#ba160c","#ce5b54",
-                         "#bf716c", "#e89993",
-                         "#f0b5b0","#f2c5c1",
-                         "#f0d9d7")) %>% 
+               color = c("#00438D","#195598",
+                         "#3268a3", "#4c7baf",
+                         "#668eba","#7fa1c6",
+                         "#99b3d1", "#b2c6dc",
+                         "#ccd9e8", "#e5ecf3",
+                         "#ffffff")) %>% 
   e_tooltip() %>%
   e_title("Registrations", "Timeline") 
 ```
 
 ### Timeline Mapping | <small> Registrations per Day </small>
+
+```{r}
+mycolor <- c("#4ca0c6","#003636","#a9a9a9", "#91c8c8")
+cum_time_df %>% 
+  group_by(Year) %>%
+  e_charts(registration_date,timeline = TRUE) %>% 
+  e_line(Registration_Count) %>%
+  e_title(text = "Registrations", 
+          subtext = "Timeline", 
+          sublink = "#",
+          left = "left", top = 4
+  ) %>%
+  e_y_axis(
+    splitArea = list(show = TRUE),
+    axisPointer = list(      show = FALSE, 
+                             lineStyle = list(
+                               color = "#999999",
+                               width = 0.75,
+                               type = "dotted"
+                             ))
+  ) %>%
+  e_x_axis(splitArea = list(show = TRUE),
+           splitLine = list(show = TRUE),
+           axisLabel= list(rotate = 0,interval = 0)) %>%
+  e_toolbox_feature(feature = "magicType",
+                    type = list("area", "line", "bar")) %>%
+  e_toolbox_feature("restore") %>%
+  e_toolbox_feature(feature = "reset") %>%
+  e_toolbox_feature("dataView") %>%
+  e_toolbox_feature("saveAsImage") %>%
+  e_animation(duration = 1000) %>%
+  e_datazoom() %>%
+  e_timeline_opts(
+    axis_type = "category",
+    playInterval = 1500,
+    top = 5,
+    right = 50,
+    left = 200
+  ) %>%
+  e_tooltip(trigger = "axis") %>% e_color(mycolor)
+```
+
+Row {data-height=550}
+-----------------------------------------------------------------------
+
+### Timeline Mapping | <small> Registrations per Day per Country </small>
 
 ```{r}
 mycolor <- c("#4ca0c6","#003636","#a9a9a9", "#91c8c8")
@@ -114,9 +163,9 @@ time_df %>%
   e_timeline_opts(
     axis_type = "category",
     playInterval = 1500,
-    top = 5,
-    right = 50,
-    left = 200
+    top = 10,
+    right = 80,
+    left = 100
   ) %>%
   e_tooltip(trigger = "axis") %>% e_color(mycolor)
 ```
@@ -241,6 +290,64 @@ ctry_ptp_df %>%
   )
 ```
 
+Row {data-height=550}
+-----------------------------------------------------------------------
+
+### Presentation Datatable | <small> useR! 2021 <small> 
+
+```{r}
+select(event_df, -c(6, 8:13, 15:16, 19)) %>% 
+  reactable(
+    .,
+    pagination = TRUE,
+    showPageSizeOptions = TRUE,
+    highlight = TRUE,
+    defaultColDef = colDef(headerClass = "header", align = "left"),
+    columns = list(
+      Subject = colDef(
+        name = "Title",
+        width = 200,
+        defaultSortOrder = "desc",
+        filterable = TRUE
+      ),
+      Start.Date = colDef(
+        name = "Start Date",
+        filterable = TRUE
+      ),
+      Start.Time = colDef(
+        name = "Start Time",
+        width = 50
+      ),
+      End.Date = colDef(
+        name = "End Date"
+      ),
+      End.Time = colDef(
+        name = "End Time",
+        width = 50
+      ),
+      Calendar.Name = colDef(
+        name = "Calendar Name",
+        width = 100
+      ),
+      Who = colDef(
+        name = "Presenters",
+        filterable = TRUE
+      ),
+      Tags = colDef(
+        name = "Tag Name",
+        filterable = TRUE
+      ),
+      Session.name = colDef(
+        name = "Session Name",
+        width = 120
+      )
+    ),
+    compact = TRUE,
+    bordered = TRUE,
+    class = "categories-tbl"
+  )
+```
+
 Row
 -------------------------------------
 
@@ -274,7 +381,7 @@ valueBox(avg_tut_attendees, icon = "fa-users", color = "#435f9c")
 valueBox(lang_count, icon = "fa-language", color = "#0586c4")
 ```
 
-Row {data-height=550}
+Row {data-height=450}
 -----------------------------------------------------------------------
 
 ### Tutorial Datatable | <small> useR! 2021 <small> 
@@ -301,20 +408,24 @@ select(tutorials_df, -c(1:2, 8, 11:12)) %>%
       ),
       language = colDef(
         name = "Language",
-        filterable = TRUE
+        filterable = TRUE,
+        width = 100
       ),
       start = colDef(
-        name = "Start Time"
+        name = "Start Time",
+        width = 100
       ),
       end = colDef(
-        name = "End Time"
+        name = "End Time",
+        width = 100
       ),
       instructors = colDef(
         name = "Instructors",
         filterable = TRUE
       ),
       duration = colDef(
-        name = "Duration"
+        name = "Duration",
+        width = 50
       ),
       attendees = colDef(
         name = "Attendees Count",

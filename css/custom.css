@@ -60,14 +60,14 @@
 }
 
 .value-box .icon i.fa {
-  font-size: 40px;
+  font-size: 50px;
   top: 20px;
   transition: all .3s linear;
   color: #FFFFFF;
 }
 
 .value-box:hover .icon > i {
-	font-size: 55px;
+	font-size: 65px;
 	position: absolute;
 	right: 15px;
 	top: 15px;
@@ -76,12 +76,12 @@
 
 
 .value-box .inner .value {
-	font-size: 30px;
+	font-size: 40px;
 	transition: all .3s linear;
 }
 
 .value-box:hover .inner .value {
-	font-size: 40px;
+	font-size: 50px;
 }
 
 .value-box:hover {
