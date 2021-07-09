@@ -46,6 +46,18 @@ valueBox(no_of_sess, icon = "fa-video", color = "#435f9c")
 valueBox(number_of_speakers, icon = "fa-user-edit", color = "#0586c4")
 ```
 
+### Total Participants
+
+```{r}
+valueBox(total_ptps, icon = "fa-handshake", color = "#435f9c")
+```
+
+### Total Countries
+
+```{r}
+valueBox(total_ctry, icon = "fa-globe", color = "#0586c4")
+```
+
 Row {data-height=450}
 -----------------------------------------------------------------------
 
@@ -63,7 +75,7 @@ smry_calendar %>%
     columns = list(
       Name = colDef(
         name = "Calendar Name",
-        width = 200,
+        width = 180,
         defaultSortOrder = "desc",
         filterable = TRUE,
       ),
@@ -88,11 +100,10 @@ smry_calendar %>%
   )
 ```
 
-### Top 10 Popular Tags | <small> Tags - useR! 2021 </small>
+### Top Popular Tags | <small> Tags - useR! 2021 </small>
 
 ```{r}
-events_tags %>%
-  head(10) %>%
+tagsdf %>%
   reactable(
     .,
     pagination = TRUE,
@@ -103,7 +114,7 @@ events_tags %>%
     columns = list(
       Tags = colDef(
         name = "Tag Name",
-        width = 450,
+        width = 200,
         defaultSortOrder = "desc",
         filterable = TRUE,
       ),
@@ -111,7 +122,46 @@ events_tags %>%
         name = "Frequency",
         defaultSortOrder = "desc",
         cell = function(value) {
-          width <- paste0(value * 100 / max(events_tags$Count), "%")
+          width <- paste0(value * 100 / max(tagsdf$Count), "%")
+          value <- format(value, big.mark = ",")
+          value <- format(value, width = 9, justify = "right")
+          bar <- div(
+            class = "bar-chart",
+            style = list(marginRight = "6px"),
+            div(class = "bar", style = list(width = width, backgroundColor = "#fc5185"))
+          )
+          div(class = "bar-cell", span(class = "number", value), bar)
+        }
+      )),
+    compact = TRUE,
+    bordered = TRUE,
+    class = "categories-tbl"
+  )
+```
+
+### Top Popular Countires | <small> Registrations per Country</small>
+
+```{r}
+ctry_ptp_df %>%
+  reactable(
+    .,
+    pagination = TRUE,
+    showPageSizeOptions = TRUE,
+    highlight = TRUE,
+    defaultSorted = "Count",
+    defaultColDef = colDef(headerClass = "header", align = "left"),
+    columns = list(
+      country = colDef(
+        name = "Country",
+        width = 150,
+        defaultSortOrder = "desc",
+        filterable = TRUE,
+      ),
+      Count = colDef(
+        name = "Participation Frequency",
+        defaultSortOrder = "desc",
+        cell = function(value) {
+          width <- paste0(value * 100 / max(ctry_ptp_df$Count), "%")
           value <- format(value, big.mark = ",")
           value <- format(value, width = 9, justify = "right")
           bar <- div(
@@ -134,10 +184,10 @@ Row
 ### Total Tutorials
 
 ```{r}
-valueBox(no_of_tut, icon = "fa-slideshare", color = "#435f9c")
+valueBox(no_of_tut, icon = "fa-slideshare", color = "#0586c4")
 ```
 
-### Total Number of Instructors
+### Total Instructors
 
 ```{r}
 valueBox(no_of_instr, icon = "fa-chalkboard-teacher", color = "#435f9c")

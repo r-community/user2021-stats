@@ -1,5 +1,6 @@
 event_df <- read.csv("events_data.csv")
 tutorials_df <- read.csv("tutorial_agenda.csv")
+ptp_df <- read.csv("participation_data.csv")
 
 # 1. Calendar summary
 #library(dplyr)
@@ -59,4 +60,20 @@ events_tags <- event_df %>%
   group_by(Tags) %>%
   summarise(Count = n())
 events_tags<-events_tags[!(events_tags$Tags=="Break"),]
-events_tags <- events_tags[order(events_tags$Count, decreasing = TRUE), ]
+tags <- events_tags$Tags
+taglist <- paste(tags, collapse = ", ")
+taglist <- gsub(" /", ",", taglist)
+tagsvector <- strsplit(taglist, ",")[[1]]
+tagstable <- table(trimws(tagsvector))
+tagsdf <- as.data.frame(tagstable)
+colnames(tagsdf) <- c("Tags", "Count")
+tagsdf <- tagsdf[order(tagsdf$Count, decreasing = TRUE), ]
+
+
+# 6. Participation summary
+ctry_ptp_df <- ptp_df %>%
+  group_by(country) %>%
+  summarise(Count = n())
+ctry_ptp_df <- ctry_ptp_df[-c(1),]
+total_ctry <- nrow(ctry_ptp_df)
+total_ptps <- sum(ctry_ptp_df$Count)
